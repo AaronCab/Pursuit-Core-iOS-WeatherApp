@@ -19,21 +19,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var weatherCollectionView: UICollectionView!
     
+    @IBOutlet weak var zipTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         weatherCollectionView.dataSource = self
         weatherCollectionView.delegate = self
-        APIClient.getWeather(zipCode: "11377"){(error, results) in
-            if let error = error {
-                print(error.errorMessage())
-            } else if let results = results {
-                DispatchQueue.main.async {
-                    self.result = results
-                    dump(results)
-                }
-                
-            }
-        }
+        zipTextField.delegate = self
         
     }
     
@@ -59,12 +50,26 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
-
-extension ViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize.init(width: 100, height: 100)
-//    }
+extension ViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let textfieldText = zipTextField.text
+        APIClient.getWeather(zipCode: textfieldText!){(error, results) in
+            if let error = error {
+                print(error.errorMessage())
+            } else if let results = results {
+                DispatchQueue.main.async {
+                    self.result = results
+                   
+                }
+                
+            }
+        }
+        return true
+    }
     
+}
+extension ViewController: UICollectionViewDelegateFlowLayout {
+
 //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
 //        let vc =
