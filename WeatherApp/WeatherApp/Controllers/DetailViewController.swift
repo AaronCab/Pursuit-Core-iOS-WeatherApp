@@ -36,18 +36,21 @@ class DetailViewController: UIViewController {
             if let url = url{
                 self.pixabayResul = url
                 let url = url
-                ImageHelper.shared.fetchImage(urlString: url.largeImageURL) { (error, image) in
-                    if let error = error {
-                        print(error.errorMessage())
-                    }
-                    if let image = image {
-                        self.pixabayImage.image = image
-                    }
-                }
+                self.getImages(newString: url.largeImageURL)
             }
         }
     }
 
+    func getImages(newString:String){
+        ImageHelper.shared.fetchImage(urlString: newString) { (error, image) in
+            if let error = error {
+                print(error.errorMessage())
+            }
+            if let image = image {
+                self.pixabayImage.image = image
+            }
+        }
+    }
     func updateUI(){
         highLabel.text = "High: \(weatherResult.maxTempF)"
         lowLabel.text = "Low: \(weatherResult.minTempF)"
@@ -63,16 +66,7 @@ class DetailViewController: UIViewController {
 
 
         
-func getImages(newString:String){
-    ImageHelper.shared.fetchImage(urlString: newString) { (error, image) in
-        if let error = error {
-            print(error.errorMessage())
-        }
-        if let image = image {
-            self.pixabayImage.image = image
-        }
-    }
-}
+
 }
     
 //    @IBAction func saveButton(_ sender: UIButton) {
