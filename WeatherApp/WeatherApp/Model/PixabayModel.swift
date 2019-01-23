@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct Picture: Codable {
+    let hits: [Hits]
+}
+struct Hits: Codable{
+    let largeImageURL: String
+}

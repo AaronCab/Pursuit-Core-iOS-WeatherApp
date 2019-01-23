@@ -9,9 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    @IBOutlet weak var locationLabel: UILabel!
     var location = ""
+    @IBOutlet weak var locationLabel: UILabel!
+    
     var result = [Periods](){
         didSet {
             DispatchQueue.main.async {
@@ -75,10 +75,11 @@ extension ViewController: UITextFieldDelegate{
                 DispatchQueue.main.async {
                     self.location = location
                     self.locationLabel.text = "Weather from \(location)"
-                    
+                    dump(location)
                 }
                 
             }
+            
 
         }
         return true
@@ -96,6 +97,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 
         let weather = result[indexPath.row]
         vc.weatherResult = weather
+        vc.location = location
         //shows you the viewcontroller
         navigationController?.pushViewController(vc, animated: true)
     }
