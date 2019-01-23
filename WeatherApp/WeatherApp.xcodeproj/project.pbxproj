@@ -22,6 +22,7 @@
 		935E82C921F7B8CC00B0C9E6 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935E82C821F7B8CC00B0C9E6 /* WeatherModel.swift */; };
 		935E82CE21F7CBED00B0C9E6 /* weatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935E82CD21F7CBED00B0C9E6 /* weatherCollectionViewCell.swift */; };
 		935E82D021F7CD0000B0C9E6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935E82CF21F7CD0000B0C9E6 /* DetailViewController.swift */; };
+		935E82D221F7ED9400B0C9E6 /* PixabayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935E82D121F7ED9400B0C9E6 /* PixabayModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		935E82C821F7B8CC00B0C9E6 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		935E82CD21F7CBED00B0C9E6 /* weatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherCollectionViewCell.swift; sourceTree = "<group>"; };
 		935E82CF21F7CD0000B0C9E6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		935E82D121F7ED9400B0C9E6 /* PixabayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixabayModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			children = (
 				935E82C821F7B8CC00B0C9E6 /* WeatherModel.swift */,
 				935E82BE21F7B50300B0C9E6 /* SecretKeys.swift */,
+				935E82D121F7ED9400B0C9E6 /* PixabayModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				57EE00A021F15E0F00D76A6E /* ZipCodeHelper.swift in Sources */,
 				935E82C521F7B5B200B0C9E6 /* APIClient.swift in Sources */,
 				935E82BF21F7B50300B0C9E6 /* SecretKeys.swift in Sources */,
+				935E82D221F7ED9400B0C9E6 /* PixabayModel.swift in Sources */,
 				935E82CE21F7CBED00B0C9E6 /* weatherCollectionViewCell.swift in Sources */,
 				935E82C321F7B59000B0C9E6 /* AppError.swift in Sources */,
 				935E82C921F7B8CC00B0C9E6 /* WeatherModel.swift in Sources */,

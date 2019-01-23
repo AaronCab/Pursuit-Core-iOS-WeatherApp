@@ -26,13 +26,11 @@ class DetailViewController: UIViewController {
     func updateUI(){
         highLabel.text = "High: \(weatherResult.maxTempF)"
         lowLabel.text = "Low: \(weatherResult.minTempF)"
-        sunriseLabel.text = "\(weatherResult.dateFormattedString3)"
-        sunsetLabel.text = "\(weatherResult.dateFormattedString2)"
+        sunriseLabel.text = "Sunrise: \(weatherResult.dateFormattedString3)"
+        sunsetLabel.text = "Sunset: \(weatherResult.dateFormattedString2)"
         windSpeedLabel.text = "Wind Speed: \(weatherResult.windSpeedMPH) MPH"
         dateLabel.text = weatherResult.dateFormattedString
         perciptiationLabel.text =  "Precipitation: \(weatherResult.precipIN) inches"
     }
-
-   
 
 }

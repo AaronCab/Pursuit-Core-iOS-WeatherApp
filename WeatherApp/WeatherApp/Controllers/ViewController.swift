@@ -9,6 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var locationLabel: UILabel!
+    var location = ""
     var result = [Periods](){
         didSet {
             DispatchQueue.main.async {
@@ -53,6 +56,7 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let textfieldText = zipTextField.text
+        
         APIClient.getWeather(zipCode: textfieldText!){(error, results) in
             if let error = error {
                 print(error.errorMessage())
@@ -63,6 +67,19 @@ extension ViewController: UITextFieldDelegate{
                 }
                 
             }
+        }
+        ZipCodeHelper.getLocationName(from: textfieldText!) { (error, location) in
+            if let error = error {
+                print(error)
+            } else if let location = location {
+                DispatchQueue.main.async {
+                    self.location = location
+                    self.locationLabel.text = "Weather from \(location)"
+                    
+                }
+                
+            }
+
         }
         return true
     }

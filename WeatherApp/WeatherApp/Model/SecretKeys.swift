@@ -11,4 +11,5 @@ import Foundation
 final class SecretyKeys {
     static let APIKey = "Dgy2YJamheaNVWxy6BwaVb7uRvjeuare6BSCHi5r"
     static let AccessID = "53zeVZ0mEerkWer9fy71Y"
+    static let pixabayKey = "11366605-94e457b36dbaba061aeb06946"
 }
