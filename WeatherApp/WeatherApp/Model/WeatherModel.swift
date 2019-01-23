@@ -25,8 +25,9 @@ struct Periods: Codable {
     let windSpeedMPH: Int
     let weather: String
     let icon: String
-    let sunrise: Int
-    let sunset: Int
+    let sunriseISO: String
+    let sunsetISO: String
+    let precipIN: Double
     public var dateFormattedString: String {
         let isoDateFormatter = ISO8601DateFormatter()
         var formattedDate = dateTimeISO
@@ -41,6 +42,42 @@ struct Periods: Codable {
         let isoDateFormatter = ISO8601DateFormatter()
         var formattedDate = Date()
         if let date = isoDateFormatter.date(from: dateTimeISO) {
+            formattedDate = date
+        }
+        return formattedDate
+    }
+    public var dateFormattedString2: String {
+        let isoDateFormatter = ISO8601DateFormatter()
+        var formattedDate = sunsetISO
+        if let date = isoDateFormatter.date(from: formattedDate) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm a"
+            formattedDate = dateFormatter.string(from: date)
+        }
+        return formattedDate
+    }
+    public var date2: Date {
+        let isoDateFormatter = ISO8601DateFormatter()
+        var formattedDate = Date()
+        if let date = isoDateFormatter.date(from: sunsetISO) {
+            formattedDate = date
+        }
+        return formattedDate
+    }
+    public var dateFormattedString3: String {
+        let isoDateFormatter = ISO8601DateFormatter()
+        var formattedDate = sunriseISO
+        if let date = isoDateFormatter.date(from: formattedDate) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm a"
+            formattedDate = dateFormatter.string(from: date)
+        }
+        return formattedDate
+    }
+    public var date3: Date {
+        let isoDateFormatter = ISO8601DateFormatter()
+        var formattedDate = Date()
+        if let date = isoDateFormatter.date(from: sunriseISO) {
             formattedDate = date
         }
         return formattedDate

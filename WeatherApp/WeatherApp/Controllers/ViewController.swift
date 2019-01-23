@@ -70,17 +70,17 @@ extension ViewController: UITextFieldDelegate{
 }
 extension ViewController: UICollectionViewDelegateFlowLayout {
 
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-//        let vc =
-//            storyBoard.instantiateViewController(withIdentifier: "MagicCards") as! MagicDetailViewController
-//
-//        vc.modalPresentationStyle = .overCurrentContext
-//
-//        let magicCards = cards[indexPath.row]
-//        vc.magic = magicCards
-//        //shows you the viewcontroller
-//        present(vc, animated: true, completion: nil)
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc =
+            storyBoard.instantiateViewController(withIdentifier: "WeatherDetailID") as! DetailViewController
+
+        vc.modalPresentationStyle = .overCurrentContext
+
+        let weather = result[indexPath.row]
+        vc.weatherResult = weather
+        //shows you the viewcontroller
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
